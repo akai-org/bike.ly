@@ -52,7 +52,7 @@ const CarSettings = () => {
       <TextField variant="outlined" label="Pojemność silnika" value={capacity} onChange={(e) => setCapacity(e.target.value)} fullWidth  className={styles.input}/>
 
       <InputLabel id="gearbox">Skrzynia biegów</InputLabel>
-      <Select labelId="gearbox" id="gearbox-select" label="Gearbox" value={gearBox}
+      <Select labelId="gearbox" id="gearbox-select" label="Skrzynia biegów" value={gearBox}
         onChange={(e) => setGearBox(e.target.value)}
         fullWidth className={styles.input}>
             {names.map((el) => {

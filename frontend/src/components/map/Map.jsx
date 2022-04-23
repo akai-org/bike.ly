@@ -9,17 +9,12 @@ const Map = ({ defaultLocation, setFinishStation }) => {
   const LocationFinderDummy = () => {
     const map = useMapEvents({
         click(e) {
-          console.log("x");
+          console.log([e.latlng.lat, e.latlng.lng]);
           setFinishStation([e.latlng.lat, e.latlng.lng]);
         },
     });
     return null;
   };
-
-  const handleClick = e => {
-    console.log([e.latlng.lat, e.latlng.lng]);
-    setFinishStation([e.latlng.lat, e.latlng.lng]);
-  }
 
   return (
     <div className={styles.mapContainer}>
@@ -34,7 +29,6 @@ const Map = ({ defaultLocation, setFinishStation }) => {
         dragging={true}
         animate={true}
         easeLinearity={0.35}
-        onClick={handleClick}
     >
       <LocationFinderDummy />
       <TileLayer

@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import { MainContainer } from './components'
 
 function App() {
   return (
     <div>
-      
+      <MainContainer/>
     </div>
   );
 }

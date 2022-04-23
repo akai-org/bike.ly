@@ -16,6 +16,7 @@ router.get('/', function (req, res, next) {
     url.searchParams.append('lng', lng)
     url.searchParams.append('lat', lat)
     url.searchParams.append('limit', limit)
+    url.searchParams.append('distance', 1000)
 
 
     axios({

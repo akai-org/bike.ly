@@ -1,0 +1,21 @@
+.input {
+  padding-right: 50px;
+  position: absolute;
+}
+
+.container {
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    color: #1400FF;
+}

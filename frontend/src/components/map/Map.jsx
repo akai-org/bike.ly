@@ -4,13 +4,12 @@ import 'leaflet/dist/leaflet.css';
 
 
 
-const Map = ({ defaultLocation, setFinishStation }) => {
+const Map = ({ defaultLocation, handleMapClick }) => {
 
   const LocationFinderDummy = () => {
     const map = useMapEvents({
         click(e) {
-          console.log([e.latlng.lat, e.latlng.lng]);
-          setFinishStation([e.latlng.lat, e.latlng.lng]);
+          handleMapClick([e.latlng.lat, e.latlng.lng]);
         },
     });
     return null;

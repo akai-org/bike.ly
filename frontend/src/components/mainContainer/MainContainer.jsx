@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Navbar, Station, End, CarSettings, Map } from "../"
+import { Navbar, Station, End, CarSettings, Map, Statistics } from "../"
 
 const MainContainer = ({}) => {
 
@@ -33,6 +33,28 @@ const MainContainer = ({}) => {
     })
   }
 
+  const findFinishStationCoords = coords => {
+    axios({
+      method: 'get',
+      url: `http://localhost:3001/stations`,
+      withCredentials: false,
+      params: {
+        lat: coords[0],
+        lng: coords[1],
+        limit: 5
+      },
+    })
+    .then(res => {
+      if (res.data.length) setFinishStation(res.data[0]);
+      else console.log("Finish station not found");
+    })
+  }
+
+  const handleMapClick = coords => {
+    setFinishStation(coords);
+    findFinishStationCoords(coords);
+  }
+
   useEffect(() => {
     // Get start station
     axios({
@@ -55,9 +77,10 @@ const MainContainer = ({}) => {
     <>
         <Navbar search={findFinishStation} />
         { startStation && <Station {...startStation} title={"Stacja początkowa"} /> }
-        <Map defaultLocation={userLocation} setFinishStation={setFinishStation} />
+        <Map defaultLocation={userLocation} handleMapClick={handleMapClick} />
         { finishStation && <Station {...finishStation} title={"Stacja końcowa"} /> }
         { finishStation && <End title="Miejsce Docelowe" name="Centrum Wykładowe Politechniki Poznańskiej" lat={userLocation[0]} lng={userLocation[1]} />}
+        { finishStation && <Statistics/>}
         <CarSettings />
     </>
   )

@@ -5,5 +5,6 @@ import Station from './station/Station'
 import CarSettings from "./carSettings/CarSettings"
 import End from "./end/End"
 import Map from "./map/Map"
+import Statistics from "./statistics/Statistics"
 
-export { Input, MainContainer, Navbar, Station, End, CarSettings, Map }
+export { Input, MainContainer, Navbar, Station, End, CarSettings, Map, Statistics }
